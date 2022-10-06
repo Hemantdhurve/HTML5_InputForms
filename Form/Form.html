@@ -21,6 +21,7 @@
                 <div>
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" placeholder="E-mail" name="email">
+                    <error-output class="email-error" for="text"></error-output>
                 </div>
                 <div>
                     <label for="url">URL:</label>
@@ -72,6 +73,18 @@
                         textError.textContent="";
                     else
                         textError.textContent="Name is Incorrect";
+                });
+
+                //UC 2 Validating Email
+                const emailtext=document.querySelector('#email');
+                const emailError=document.querySelector('.email-error');
+                emailtext.addEventListener('input',function()
+                {
+                    let emailRegex=RegExp('^[A-Za-z0-9]{3,}([.]{1}[A-Za-z0-9]{3,})*[@][a-z]{2,}[.][a-z]{2,}([.][a-zA-Z]{2})?$')
+                    if(emailRegex.test(emailtext.value))
+                    emailError.textContent="";
+                    else
+                    emailError.textContent="Email is Incorrect";
                 });
 
                 const salary=document.querySelector('#salary');
