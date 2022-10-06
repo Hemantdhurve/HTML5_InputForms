@@ -30,6 +30,7 @@
                 <div>
                     <label for="number">Number:</label>
                     <input type="number" id="number" placeholder="Number" name="number" required>
+                    <error-output class="number-error" for="text"></error-output>
                 </div>
                 <div>
                     <label for="tel">Tel:</label>
@@ -85,6 +86,18 @@
                     emailError.textContent="";
                     else
                     emailError.textContent="Email is Incorrect";
+                });
+
+                //UC 3 Validating Mobile Number Followed By Country Code
+                const phonetext=document.querySelector('#number');
+                const phoneError=document.querySelector('.number-error');
+                phonetext.addEventListener('input',function()
+                {
+                    let phoneRegex=RegExp('^91([ ])?[6-9]{1}[0-9]{9}$')
+                    if(phoneRegex.test(phonetext.value))
+                    phoneError.textContent="";
+                    else
+                    phoneError.textContent="Phone Number is Incorrect";
                 });
 
                 const salary=document.querySelector('#salary');
