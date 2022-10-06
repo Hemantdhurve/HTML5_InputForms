@@ -101,16 +101,16 @@
                     phoneError.textContent="Phone Number is Incorrect";
                 });
 
-                //UC 4 Validating Password Rule No. 1
-                const pass1text=document.querySelector('#pwd');
-                const pass1Error=document.querySelector('.pwd-error');
-                pass1text.addEventListener('input',function()
+                //UC 4 + UC 5 Validating All Password Rules
+                const passtext=document.querySelector('#pwd');
+                const passError=document.querySelector('.pwd-error');
+                passtext.addEventListener('input',function()
                 {
-                    let pass1Regex=RegExp('^[A-za-z]{8,}$')
-                    if(pass1Regex.test(pass1text.value))
-                    pass1Error.textContent="";
+                    let passRegex=RegExp('^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*-]).{8,}$')
+                    if(passRegex.test(passtext.value))
+                    passError.textContent="";
                     else
-                    pass1Error.textContent="PassWord Rule no. 1 is Incorrect";
+                    passError.textContent="PassWord Rule no. 1 is Incorrect";
                 });
 
                 const salary=document.querySelector('#salary');
