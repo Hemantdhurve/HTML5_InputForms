@@ -17,6 +17,7 @@
                 <div>
                     <label for="pwd">Password:</label>
                     <input type="password" id="pwd" placeholder="Password" name="pwd">
+                    <error-output class="pwd-error" for="text"></error-output>
                 </div>
                 <div>
                     <label for="email">E-mail:</label>
@@ -98,6 +99,18 @@
                     phoneError.textContent="";
                     else
                     phoneError.textContent="Phone Number is Incorrect";
+                });
+
+                //UC 4 Validating Password Rule No. 1
+                const pass1text=document.querySelector('#pwd');
+                const pass1Error=document.querySelector('.pwd-error');
+                pass1text.addEventListener('input',function()
+                {
+                    let pass1Regex=RegExp('^[A-za-z]{8,}$')
+                    if(pass1Regex.test(pass1text.value))
+                    pass1Error.textContent="";
+                    else
+                    pass1Error.textContent="PassWord Rule no. 1 is Incorrect";
                 });
 
                 const salary=document.querySelector('#salary');
